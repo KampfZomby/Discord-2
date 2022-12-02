@@ -1,17 +1,23 @@
 import React from 'react';
-import {encrypt} from 'n-krypta';
+import { Link} from "react-router-dom"
+import logo from './logo.svg';
 
 function Login() {
     return (
       <div className="Login">
         <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
           <form>
             <p>
-              Your Discord 2 ID:
+              You need your Email and Password to log in:
             </p>
+              <input type="text"/>
               <input type="password"/>
-              <input type="submit" value="Login"/>
           </form>
+          <p>
+            You do not have an account yet...?
+            <Link className="App-link" to="/create">Create today!</Link>
+          </p>
         </header>
       </div>
     );

@@ -6,6 +6,20 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Create from './pages/Create';
+import { initializeApp } from "firebase/app";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAPGoCZVbbeQugFq5vksbPZV3zXAXan2EE",
+  authDomain: "discord-2-52e82.firebaseapp.com",
+  projectId: "discord-2-52e82",
+  storageBucket: "discord-2-52e82.appspot.com",
+  messagingSenderId: "31766851232",
+  appId: "1:31766851232:web:5105eb05fb6006f34123c5",
+  measurementId: "G-8K45NJJM44"
+};
+
+const app = initializeApp(firebaseConfig);
 
 function App() {
   return (

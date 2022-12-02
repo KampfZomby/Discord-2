@@ -3,7 +3,7 @@ function Contact() {
       <div className="Contact">
         <header className="App-header">
           <p>
-            Discord 2
+            Its Discord, so there is no support...
           </p>
         </header>
       </div>
