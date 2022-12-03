@@ -9,7 +9,7 @@ function Login() {
         <img src={logo} className="App-logo" alt="logo" />
           <form>
             <p>
-              You need your Email and Password to log in:
+              You need your Discord 2 ID and Password to log in:
             </p>
               <input type="text"/>
               <input type="password"/>

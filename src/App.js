@@ -6,8 +6,9 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Create from './pages/Create';
+import Chat from './pages/Chat';
 import { initializeApp } from "firebase/app";
-
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAPGoCZVbbeQugFq5vksbPZV3zXAXan2EE",
@@ -20,6 +21,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 function App() {
   return (
@@ -32,6 +34,7 @@ function App() {
           <Route path='/contact' element={<Contact/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/create' element={<Create/>} />
+          <Route path='/chat' element={<Chat/>} />
         </Routes>
       </Router>
     </div>

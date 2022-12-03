@@ -13,6 +13,7 @@ function Welcome() {
   return (
     <div className="Welcome">
       <header className="App-header">
+
     <Confetti
       width={width}
       height={height}
@@ -35,13 +36,19 @@ function Welcome() {
         />
 
       <img src={logo} className="App-logo" alt="logo" />
+
         <p>
           Welcome to Discord 2
         </p>
+
         <button variant="outlined" onClick={() => {navigate("/login")}}>Login</button>
+
         <button onClick={() => {navigate("/create")}}>Create an Account</button>
+
         <Link className="App-link" to="/about"> About Discord 2 </Link>
+
         <Link className="App-link" to="/contact"> Contact Support </Link>
+
         <a
           className="App-link"
           href="https://github.com/KampfZomby/Discord2"
@@ -50,6 +57,7 @@ function Welcome() {
         >
           Discord 2 on Github
         </a>
+        
       </header>
     </div>
   );

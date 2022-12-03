@@ -1,8 +1,26 @@
-import React, {useState } from 'react';
+import React from 'react';
 import {useNavigate } from "react-router-dom"
 import { signOut } from "firebase/auth";
 import { getAuth } from "firebase/auth";
-import {linkWithCredential } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAPGoCZVbbeQugFq5vksbPZV3zXAXan2EE",
+  authDomain: "discord-2-52e82.firebaseapp.com",
+  projectId: "discord-2-52e82",
+  storageBucket: "discord-2-52e82.appspot.com",
+  messagingSenderId: "31766851232",
+  appId: "1:31766851232:web:5105eb05fb6006f34123c5",
+  measurementId: "G-8K45NJJM44"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
 
 function Home() {
 
@@ -10,26 +28,6 @@ function Home() {
   const auth = getAuth();
   const user = auth.currentUser;
   const uid = user.uid;
-  const [createEmail, setCreateEmail] = useState("");
-  const [createPassword, setCreatePassword] = useState("");
-
-  const handleEmail = event => {
-    setCreateEmail(event.target.value);
-  };
-
-  const handlePassword = event => {
-    setCreatePassword(event.target.value);
-  };
-
-  const create = async () => {
-    try {
-      console.log(createEmail)
-      console.log(createPassword)
-      linkWithCredential(auth.currentUser, createEmail, createPassword)
-    } catch(error) {
-      console.log("Error upgrading anonymous account", error);
-    }
-  }
 
   const logout = async () => {
     try {
@@ -43,14 +41,20 @@ function Home() {
   return (
     <div className="Home">
       <header className="App-header">
-        <div>
-          <input type="text" onChange={handleEmail}/>
-          <input type="text" onChange={handlePassword}/>
-          <button onClick={create}>Create permanent account</button>
-        </div>
         <p>
-          Your current Discord 2 ID: 
+          Your current Discord 2 ID: {uid}
         </p>
+        <p>
+        Please create a password or your account will be deleted once you log out:
+        </p>
+          <label>
+            <input type="text" name="name" />
+          </label>
+          <button>Set password</button>
+          <label>
+            <input type="text" name="char" />
+          </label>
+          <button>Create Chat with</button>
           <button onClick={logout}>Log Out</button>
       </header>
     </div>
